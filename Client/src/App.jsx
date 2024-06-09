@@ -1,17 +1,23 @@
 import './App.css'
-import File_input from './Components/FIle_input'
+import DownloadPage from './Components/DownloadPage';
 import { Toaster } from 'react-hot-toast';
+import Home from './Components/Home';
+import PageNotFound from './Components/PageNotFound';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
+
 
 function App() {
 
   return (
     <>
-    <Toaster/>
-      <img src="/logo.png" alt="logo" className='logo'/>
-      <div className="container">
-        <File_input />
-        <img src="/undraw-upload.svg" alt="image" className='upload-image' draggable={false} />
-      </div>
+      <Toaster />
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/download/:uniqueId" element={<DownloadPage />} />
+          <Route exact path="*" element={<PageNotFound />} />
+        </Routes>
+      </Router>
     </>
   )
 }
