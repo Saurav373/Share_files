@@ -1,0 +1,41 @@
+.logo{
+    position: absolute;
+    left:1%;
+    top:1%;
+    height:70px;
+    width: 150px;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.upload-image{
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    right: 0;
+}
+
+@media only screen and (max-width: 850px) {
+    .container{
+        display: flex;
+        flex-direction:column;
+        gap: 10%;
+    }
+    .upload-image{
+        bottom:-5%;
+        right: 30%;
+    }
+    body{
+        justify-content: center;
+        align-items: center;
+        overflow:hidden;
+    }
+
+    .logo{
+        left:5%;
+        top:5%;
+    }
+
+}

@@ -1,0 +1,78 @@
+.file-container {
+  height: 250px;
+  width: 550px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: #857f7f 5px 5px 14px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}
+.upload-container {
+  height: 80%;
+  width: 80%;
+  border: 2px dashed var(--border-color);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  transition: all 250ms ease;
+}
+
+.img-cont {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+.text{
+  text-align: center;
+}
+.upload-container .text span {
+  color: #134fa8;
+  cursor: pointer;
+}
+
+.upload-container .img-cont .image {
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  transform-origin: bottom;
+  transition: all 250ms ease;
+}
+.dragged .center {
+  z-index: 2;
+  transform: translateY(-5px);
+}
+
+.dragged .right {
+  transform: translate(-5px) rotate(-25deg);
+  filter: grayscale(80%);
+}
+.dragged .left {
+  transform: translate(5px) rotate(25deg);
+  filter: grayscale(80%);
+}
+.dragging {
+  background-color: #cddbf0a2;
+  border-color: #0a517777;
+}
+
+#file {
+  display: none;
+}
+
+@media only screen and (max-width: 850px) {
+    .file-container {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .file-container {
+        width: 300px;
+        height: 200px;
+    }
+}

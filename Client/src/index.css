@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&display=swap');
+
+:root {
+  --bg-color:#eff5fe;
+  --border-color:#0288d147;
+}
+
+body{
+  font-family: "Alkatra";
+  font-weight:400;
+  font-size: larger;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+}
