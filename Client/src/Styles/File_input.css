@@ -1,5 +1,5 @@
 .file-container {
-  height: 250px;
+  height: 300px;
   width: 550px;
   background: #fff;
   border-radius: 15px;
@@ -8,9 +8,12 @@
   justify-content: center;
   align-items: center;
   margin: 5%;
+  flex-direction: column;
+  margin-top: 10%;
+  gap: 15px;
 }
 .upload-container {
-  height: 80%;
+  height: 150px;
   width: 80%;
   border: 2px dashed var(--border-color);
   border-radius: 15px;
@@ -64,6 +67,44 @@
   display: none;
 }
 
+.link{
+  width: 80%;
+  height: 30px;
+  border: 2px dashed var(--border-color); 
+  padding: 3px 10px;
+  border-radius: 5px;
+  overflow-x:scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+  background: var(--bg-color);
+  align-items: center;
+}
+
+.copy-icon{
+  height: 100%;
+  width: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  z-index: 100;
+  background: var(--bg-color);
+  padding: 0 5px;
+}
+
+.text-container {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height: 100%;
+  width: calc(100% - 40px);
+}
+
+::-webkit-scrollbar {
+  display: none; 
+}
 @media only screen and (max-width: 850px) {
     .file-container {
         width: 400px;

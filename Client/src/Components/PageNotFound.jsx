@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Styles/PageNotFound.css'
+import { Link } from 'react-router-dom'
 
 const PageNotFound = () => {
     return (
@@ -8,7 +9,7 @@ const PageNotFound = () => {
             <h1>
                 Page Not Found
             </h1>
-            <h3>Invalid Url , Please try using a valid url OR visit to our website</h3>
+            <h3>Invalid Url , Please try using a valid url OR <Link to='/'> visit to our website</Link></h3>
         </div>
     )
 }

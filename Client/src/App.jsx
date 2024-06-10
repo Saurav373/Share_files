@@ -1,9 +1,12 @@
 import './App.css'
-import DownloadPage from './Components/DownloadPage';
 import { Toaster } from 'react-hot-toast';
-import Home from './Components/Home';
-import PageNotFound from './Components/PageNotFound';
+import { Suspense, lazy } from 'react';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
+import Loader from './Components/Loader';
+
+const Home = lazy(() => import('./Components/Home'))
+const DownloadPage = lazy(() => import('./Components/DownloadPage'))
+const PageNotFound = lazy(() => import('./Components/PageNotFound'))
 
 
 function App() {
@@ -12,11 +15,13 @@ function App() {
     <>
       <Toaster />
       <Router>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/download/:uniqueId" element={<DownloadPage />} />
-          <Route exact path="*" element={<PageNotFound />} />
-        </Routes>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/download/:uniqueId" element={<DownloadPage />} />
+            <Route exact path="*" element={<PageNotFound />} />
+          </Routes>
+        </Suspense>
       </Router>
     </>
   )
