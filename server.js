@@ -6,7 +6,10 @@ import { fileURLToPath } from 'url';
 import { connectToMongoDB } from './Server/DB/db.js'
 import { upload } from './Server/Controllers/multerConfig.js'
 import { uploadFile } from './Server/Routes/uploadFILe.js'
-import { downloadFile } from './Server/Routes/downloadFile.js'
+import { FileInfo } from './Server/Routes/FileInfo.js'
+import { DownloadFile } from './Server/Routes/downloadFile.js';
+import  deleteFiles from './Server/Controllers/DeleteFiles.js';
+
 
 
 const app = express()
@@ -21,14 +24,15 @@ app.use(express.json())
 app.use(express.static(join(__dirname, 'uploads')));
 
 connectToMongoDB()
-
+deleteFiles(__dirname)
 
 app.get('/', (req, res) => {
     res.send('hello world')
 })
 
 app.post('/upload', upload.single('file'), uploadFile)
-app.post('/download', downloadFile)
+app.post('/fileinfo', FileInfo)
+app.get('/download/:uuid', DownloadFile)
 
 app.listen(PORT, () => {
     console.log('App listening on http://localhost:' + PORT);

@@ -1,12 +1,10 @@
-import { File } from "../Schema/fileSchema.js"
+import { File } from "../Schema/fileSchema.js";
 
-export const downloadFile = async (req, res) => {
-    const { uniqueId } = req.body;
-    console.log(req.body);
-    const data = await File.findOne({ uuid: uniqueId })
-    if (!data) {
-        return res.json({ status: false })
+export const DownloadFile = async(req, res) => {
+    const { uuid } = req.params;
+    const data = await File.findOne({uuid})
+    if(!data){
+        return res.send('Invalid Url')
     }
-    const { filename, originalname, size } = data
-    res.send({ filename, originalname, size, status: true })
+    res.send(`./uploads/${data.filename}`)
 }

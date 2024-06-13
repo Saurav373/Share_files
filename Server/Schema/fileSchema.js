@@ -19,6 +19,6 @@ const FileSchema = new mongoose.Schema({
     }, mimetype: {
         type: String
     }
-})
+}, { timestamps: true })
 
 export const File = mongoose.model('File', FileSchema);

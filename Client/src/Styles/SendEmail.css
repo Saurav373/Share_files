@@ -32,3 +32,13 @@
   padding: 10px;
   font-size: large;
 }
+#send-email-btn{
+   display: inline-flex;
+   height: 50px;
+   width: 50%;
+   text-align: center;
+}
+
+.btn-disabled{
+  background: linear-gradient(90deg, #5a7fe4 0%, #5a88eb 100%);
+}

@@ -10,10 +10,10 @@ const DownloadPage = () => {
   const { uniqueId } = useParams()
   
   const [fileData, setfileData] = useState({})
+  const [isLoading,setisLoading] = useState(true)
 
   const getFileInfo = async () => {
     try {
-
       let response = await fetch('http://localhost:3000/fileinfo', {
         method: 'POST',
         headers: {
@@ -23,6 +23,7 @@ const DownloadPage = () => {
       });
       response = await response.json();
       setfileData(response)
+      setisLoading(false)
     } catch (err) {
       console.log(err);
     }
@@ -56,14 +57,14 @@ const DownloadPage = () => {
     <>
       <Suspense fallback={<Loader />}>
         {
-          !fileData.status ? <PageNotFound /> :
+          !isLoading && (!fileData.status ? <PageNotFound /> :
             <div className='download-container' >
               <img src="/download.svg" alt="download-image" className='download-image' />
               <div className="content">
                 <h2>Your File is ready to Download</h2>
-                <span>Link Expires in 24hrs</span>
+                <span>Link Expires in {fileData.expireTimer} hrs</span>
                 <span>{fileData.originalname}</span>
-                <span>Size : {fileData.size}kb</span>
+                <span>Size : {fileData.size/1000}kb</span>
               </div>
 
               <button type="button" style={{
@@ -71,7 +72,7 @@ const DownloadPage = () => {
                 bottom: '5%'
               }} className="button-global" onClick={handleDownload}>Download File
               </button>
-            </div>
+            </div>)
         }
       </Suspense>
     </>

@@ -10,10 +10,10 @@
   margin: 5%;
   flex-direction: column;
   margin-top: 10%;
-  gap: 15px;
+  gap: 20px;
 }
 .upload-container {
-  height: 150px;
+  height: 170px;
   width: 80%;
   border: 2px dashed var(--border-color);
   border-radius: 15px;
@@ -22,7 +22,6 @@
   justify-content: center;
   align-items: center;
   gap: 15px;
-  transition: all 250ms ease;
 }
 
 .img-cont {
@@ -43,7 +42,7 @@
   width: 60px;
   position: absolute;
   transform-origin: bottom;
-  transition: all 250ms ease;
+  transition:all 250ms ease;
 }
 .dragged .center {
   z-index: 2;
@@ -69,9 +68,10 @@
 
 .link{
   width: 80%;
-  height: 30px;
+  height: 40px;
   border: 2px dashed var(--border-color); 
-  padding: 3px 10px;
+  text-align: center;
+  padding: 5px 10px;
   border-radius: 5px;
   overflow-x:scroll;
   overflow-y: hidden;

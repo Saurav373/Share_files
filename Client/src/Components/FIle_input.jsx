@@ -37,11 +37,9 @@ const File_input = () => {
         let res = await fetch("http://localhost:3000/upload", { method: "POST", body: form });
         res = await res.json()
         setfile(res)  
-        console.log(res);
-        
     };
     return (
-        <div className="file-container" style={file && {height:'600px'}}>
+        <div className="file-container" style={file && {height:'630px'}}>
             <div
                 className={`upload-container ${isDragging && "dragging"}`}
                 onDragOver={handleDragEnter}

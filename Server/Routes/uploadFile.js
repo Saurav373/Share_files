@@ -6,6 +6,5 @@ export const uploadFile = (req, res) => {
     const uniqueId = uuidv4();
     const newFile = new File({ originalname, mimetype, filename, size, uuid: uniqueId });
     newFile.save()
-    console.log(req.file);
-    res.send(`${process.env.DOMAIN}/download/${uniqueId}`);
+    res.send({downloadLink:`${process.env.FRONTEND_DOMAIN}/download/${uniqueId}`});
 }
