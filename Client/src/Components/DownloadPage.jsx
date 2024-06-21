@@ -14,7 +14,7 @@ const DownloadPage = () => {
 
   const getFileInfo = async () => {
     try {
-      let response = await fetch('http://localhost:3000/fileinfo', {
+      let response = await fetch('/fileinfo', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ const DownloadPage = () => {
   }
   const handleDownload = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/download/${uniqueId}`);
+      const response = await fetch(`/download/${uniqueId}`);
       if (!response.ok) {
         throw new Error('Failed to download file');
       }
@@ -47,7 +47,6 @@ const DownloadPage = () => {
       console.error('Error downloading file:', error);
 
     }
-
   }
   useEffect(() => {
     getFileInfo()

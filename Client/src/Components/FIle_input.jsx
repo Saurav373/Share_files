@@ -36,7 +36,7 @@ const File_input = () => {
     const handleSubmitData = async () => {
         const form = new FormData();
         form.append("file", InputFile.current.files[0]);
-        let res = await fetch("http://localhost:3000/upload", { method: "POST", body: form });
+        let res = await fetch("/upload", { method: "POST", body: form });
         res = await res.json()
         res.downloadLink = 'http://localhost:5173/download/' + res.downloadLink
         setfile(res)
