@@ -6,5 +6,5 @@ export const DownloadFile = async(req, res) => {
     if(!data){
         return res.send('Invalid Url')
     }
-    res.send(`./uploads/${data.filename}`)
+    res.send(`/uploads/${data.filename}`)
 }

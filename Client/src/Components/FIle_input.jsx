@@ -5,19 +5,21 @@ import SendEmail from "./SendEmail";
 
 const File_input = () => {
     const [isDragging, setIsdragging] = useState(false);
-    const [file,setfile] = useState(null)
-    const [loading,setloading] = useState(false)
+    const [file, setfile] = useState(null)
     const InputFile = useRef();
     const handleBrowse = () => {
         InputFile.current.click();
     };
-    
+
     const handleDragEnter = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         setIsdragging(true);
     };
+
     const handleDragLeave = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         setIsdragging(false);
     };
     const handleDrop = (e) => {
@@ -29,25 +31,26 @@ const File_input = () => {
         } else if (Files.length > 1) {
             toast.error("Only one file allowted at a time");
         }
-        handleSubmitData();
+        console.log(Files);
     };
-    const handleSubmitData = async() => {
+    const handleSubmitData = async () => {
         const form = new FormData();
         form.append("file", InputFile.current.files[0]);
         let res = await fetch("http://localhost:3000/upload", { method: "POST", body: form });
         res = await res.json()
-        setfile(res)  
+        res.downloadLink = 'http://localhost:5173/download/' + res.downloadLink
+        setfile(res)
     };
     return (
-        <div className="file-container" style={file && {height:'630px'}}>
+        <div className="file-container" style={file && { height: '630px' }}>
             <div
                 className={`upload-container ${isDragging && "dragging"}`}
                 onDragOver={handleDragEnter}
                 onDragLeave={handleDragLeave}
                 onDrop={handleDrop}
-                >
+            >
 
-                <div className={`img-cont ${isDragging && "dragged"}`}>
+                <div className={`img-cont ${isDragging ? "dragged" : ""}`} >
                     <img
                         src="/file.svg"
                         alt="file-icon"
@@ -78,8 +81,8 @@ const File_input = () => {
                     name="file"
                 />
             </div>
-            
-            {file && <SendEmail downloadlink={file.downloadLink}/>}
+
+            {file && <SendEmail downloadlink={file.downloadLink} />}
         </div>
     );
 };

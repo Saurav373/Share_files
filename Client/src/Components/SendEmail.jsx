@@ -11,7 +11,6 @@ const SendEmail = ({ downloadlink }) => {
     const [isLoading, setIsloading] = useState(false)
     const [timer, settimer] = useState(false)
     const [timervalue, setTimervalue] = useState(60)
-
     const handleSendEmail = async () => {
 
         const data = {
