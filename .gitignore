@@ -12,7 +12,6 @@ dist
 dist-ssr
 .env
 uploads
-Client
 *.local
 
 # Editor directories and files
