@@ -33,9 +33,7 @@ connectToMongoDB()
 deleteFiles(__dirname)
 
 
-app.get('/', (req, res) => {
-    res.send('Inshare Files Backend')
-})
+
 app.post('/upload', upload.single('file'), uploadFile)
 app.post('/fileinfo', FileInfo)
 app.get('/download/:uuid', DownloadFile)
