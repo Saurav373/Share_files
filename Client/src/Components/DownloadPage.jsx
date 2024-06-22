@@ -14,7 +14,7 @@ const DownloadPage = () => {
 
   const getFileInfo = async () => {
     try {
-      let response = await fetch('/fileinfo', {
+      let response = await fetch('https://inshare-3nn5.onrender.com/fileinfo', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ const DownloadPage = () => {
   }
   const handleDownload = async () => {
     try {
-      const response = await fetch(`/download/${uniqueId}`);
+      const response = await fetch(`https://inshare-3nn5.onrender.com/download/${uniqueId}`);
       if (!response.ok) {
         throw new Error('Failed to download file');
       }
