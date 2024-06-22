@@ -38,7 +38,7 @@ const File_input = () => {
         form.append("file", InputFile.current.files[0]);
         let res = await fetch("/upload", { method: "POST", body: form });
         res = await res.json()
-        res.downloadLink = 'http://localhost:5173/download/' + res.downloadLink
+        res.downloadLink = 'https://myinshare.netlify.app/download/' + res.downloadLink
         setfile(res)
     };
     return (
