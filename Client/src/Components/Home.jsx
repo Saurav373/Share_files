@@ -1,8 +1,6 @@
 import React, { Suspense, lazy } from 'react'
 import Loader from './Loader'
 const inputFile = lazy(() => import('./inputFile'))
-const File_input = lazy(() => import('./FIle_input.'))
-
 
 const Home = () => {
   return (
