@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react'
 import Loader from './Loader'
-const File_input = lazy(() => import('./File_input'))
+const inputFile = lazy(() => import('./inputFile'))
 
 const Home = () => {
   return (
@@ -8,7 +8,7 @@ const Home = () => {
       <img src="/logo.png" alt="logo" className='logo' />
       <div className="container">
         <Suspense fallback={<Loader />}>
-          <File_input />
+          <inputFile />
         </Suspense>
         <img src="/undraw-upload.svg" alt="image" className='upload-image' draggable={false} />
       </div>

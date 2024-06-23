@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
-import "../Styles/File_input.css";
+import "../Styles/inputFile.css";
 import toast from "react-hot-toast";
 import SendEmail from "./SendEmail";
 
-const File_input = () => {
+const inputFile = () => {
     const [isDragging, setIsdragging] = useState(false);
     const [file, setfile] = useState(null)
     const InputFile = useRef();
@@ -108,4 +108,4 @@ const File_input = () => {
     );
 };
 
-export default File_input;
+export default inputFile;
