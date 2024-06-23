@@ -46,7 +46,7 @@ const inputFile = () => {
             setLoading(true)
             let res = await fetch("https://inshare-3nn5.onrender.com/upload", { method: "POST", body: form });
             res = await res.json()
-            res.downloadLink = 'https://myinshare.netlify.app/download/' + res.downloadLink
+            res.downloadLink = 'https://myinshare.onrender.com/download/' + res.downloadLink
             setfile(res)
         } catch (err) {
             toast.error("Only a single file allowted");
